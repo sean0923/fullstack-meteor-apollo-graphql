@@ -1,6 +1,23 @@
-import { createApolloServer } from 'meteor/apollo'
+import { createApolloServer } from 'meteor/apollo';
 import { makeExecutableSchema } from 'graphql-tools';
 
-createApolloServer({});
+const typeDefs = `
+type Query {
+  hi: String
+}
+`;
 
-console.log('aa');
+const resolvers = {
+  Query: {
+    hi() {
+      return 'Hello Someone';
+    },
+  },
+};
+
+const schema = makeExecutableSchema({
+  typeDefs,
+  resolvers,
+});
+
+createApolloServer({ schema });
