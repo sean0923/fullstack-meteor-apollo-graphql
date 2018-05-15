@@ -2,10 +2,13 @@ import React from 'react';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 
+import ResolutionForm from './ResolutionForm';
+
 const App = ({ data }) => {
   if (data.loading) return null;
   return (
     <div>
+      <ResolutionForm />
       <div>{data.hi}</div>
       <ul>
         {data.resolutions.map(resolution => {
