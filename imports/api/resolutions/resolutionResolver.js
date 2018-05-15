@@ -11,7 +11,7 @@ export default {
 
   Mutation: {
     createResolution() {
-      // 
-    }
-  }
+      return { _id: 'dummy_id', name: 'dummyName' };
+    },
+  },
 };
