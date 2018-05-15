@@ -4,11 +4,14 @@ import { graphql } from 'react-apollo';
 
 class ResolutionForm extends Component {
   submitForm = () => {
-    console.log('this.name: ', this.name.value);
+    this.props.createResolution({
+      variables: {
+        name: this.name.value
+      }
+    });
   };
 
   render() {
-    console.log('this.props: ', this.props);
     return (
       <div>
         <input type="text" ref={input => (this.name = input)} />
@@ -19,8 +22,8 @@ class ResolutionForm extends Component {
 }
 
 const createResolution = gql`
-  mutation createResolution {
-    createResolution {
+  mutation createResolution($name: String!) {
+    createResolution(name: $name) {
       _id
     }
   }

@@ -11,6 +11,8 @@ export default {
 
   Mutation: {
     createResolution() {
+      console.log('server side ?');
+      // dummy return
       return { _id: 'dummy_id', name: 'dummyName' };
     },
   },
