@@ -8,7 +8,7 @@ const App = ({ data }) => {
   if (data.loading) return null;
   return (
     <div>
-      <ResolutionForm />
+      <ResolutionForm refetch={data.refetch} />
       <div>{data.hi}</div>
       <ul>
         {data.resolutions.map(resolution => {

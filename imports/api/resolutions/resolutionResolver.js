@@ -10,10 +10,11 @@ export default {
   },
 
   Mutation: {
-    createResolution() {
-      console.log('server side ?');
-      // dummy return
-      return { _id: 'dummy_id', name: 'dummyName' };
+    createResolution(obj, args, context) {
+      const resolutionId = Resolutions.insert({
+        name: args.name,
+      });
+      return Resolutions.findOne(resolutionId);
     },
   },
 };
