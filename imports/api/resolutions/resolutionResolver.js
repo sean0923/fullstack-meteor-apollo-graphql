@@ -8,4 +8,10 @@ export default {
       return Resolutions.find({}).fetch();
     },
   },
+
+  Mutation: {
+    createResolution() {
+      // 
+    }
+  }
 };
