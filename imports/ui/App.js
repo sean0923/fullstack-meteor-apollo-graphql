@@ -2,12 +2,19 @@ import React from 'react';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 
+import { Accounts } from 'meteor/accounts-base';
+
+import RegisterForm from './RegisterForm';
 import ResolutionForm from './ResolutionForm';
 
 const App = ({ loading, resolutions }) => {
   if (loading) return null;
   return (
     <div>
+      <RegisterForm />
+
+      <hr />
+
       <ResolutionForm />
       <ul>
         {resolutions.map(resolution => {
