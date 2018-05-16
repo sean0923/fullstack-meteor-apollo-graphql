@@ -10,10 +10,6 @@ class ResolutionForm extends Component {
           name: this.name.value,
         },
       })
-      .then(({ data }) => {
-        console.log('data: ', data);
-        this.props.refetch();
-      })
       .catch(err => {
         console.log('err: ', err);
       });
