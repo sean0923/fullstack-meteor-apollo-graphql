@@ -33,4 +33,9 @@ const createResolution = gql`
   }
 `;
 
-export default graphql(createResolution, { name: 'createResolution' })(ResolutionForm);
+export default graphql(createResolution, {
+  name: 'createResolution',
+  options: {
+    refetchQueries: ['resolutionQuery'],
+  },
+})(ResolutionForm);

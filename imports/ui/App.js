@@ -29,4 +29,4 @@ const resolutionQuery = gql`
   }
 `;
 
-export default graphql(hiQuery)(App);
+export default graphql(resolutionQuery)(App);
