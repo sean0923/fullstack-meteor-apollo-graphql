@@ -4,7 +4,7 @@ import { graphql } from 'react-apollo';
 
 import ResolutionForm from './ResolutionForm';
 
-const App = ({ lodaing, resolutions }) => {
+const App = ({ loading, resolutions }) => {
   if (loading) return null;
   return (
     <div>
