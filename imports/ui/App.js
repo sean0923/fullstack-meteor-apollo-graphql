@@ -19,8 +19,8 @@ const App = ({ data }) => {
   );
 };
 
-const hiQuery = gql`
-  {
+const resolutionQuery = gql`
+  query resolutionQuery {
     hi
     resolutions {
       _id
