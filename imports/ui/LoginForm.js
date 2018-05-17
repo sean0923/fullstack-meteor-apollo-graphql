@@ -45,7 +45,7 @@ class RegisterForm extends Component {
           <label>password: </label>
           <input type="password" ref={input => (this.password = input)} />
         </InputWrapper>
-        <button type="submit">Register User</button>
+        <button type="submit">Login</button>
       </Form>
     );
   }
