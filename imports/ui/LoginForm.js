@@ -21,22 +21,16 @@ const InputWrapper = styled.div`
 `;
 
 class RegisterForm extends Component {
-  registerUser = e => {
+  loginUser = e => {
     e.preventDefault();
-    Accounts.createUser(
-      {
-        email: this.email.value,
-        password: this.password.value,
-      },
-      err => {
-        console.log('err: ', err);
-      }
-    );
+    Meteor.loginWithPassword(this.email.value, this.password.value, err => {
+      console.log('err: ', err);
+    });
   };
 
   render() {
     return (
-      <Form onSubmit={this.registerUser}>
+      <Form onSubmit={this.loginUser}>
         <InputWrapper>
           <label>email: </label>
           <input type="email" ref={input => (this.email = input)} />
