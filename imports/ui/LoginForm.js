@@ -20,7 +20,7 @@ const InputWrapper = styled.div`
   grid-template-columns: 100px 1fr;
 `;
 
-class RegisterForm extends Component {
+class LoginForm extends Component {
   loginUser = e => {
     e.preventDefault();
     Meteor.loginWithPassword(this.email.value, this.password.value, err => {
@@ -45,4 +45,4 @@ class RegisterForm extends Component {
   }
 }
 
-export default RegisterForm;
+export default LoginForm;
