@@ -15,13 +15,20 @@ const Btn = styled.button`
   margin: 30px;
 `;
 
-const App = ({ loading, resolutions }) => {
+const handleLogout = client => {
+  Meteor.logout();
+  client.resetStore();
+};
+
+const App = ({ loading, resolutions, client }) => {
   if (loading) return null;
+  
   return (
     <div>
-      <Btn onClick={() => Meteor.logout()}>Logout</Btn>
-      <RegisterForm />
-      <LoginForm />
+      <Btn onClick={() => handleLogout(client)}>Logout</Btn>
+
+      <RegisterForm client={client} />
+      <LoginForm client={client} />
 
       <hr />
 
