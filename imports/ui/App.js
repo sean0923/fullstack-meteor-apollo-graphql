@@ -1,6 +1,7 @@
 import React from 'react';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
+import { withApollo } from 'react-apollo';
 import styled from 'styled-components';
 
 import ResolutionForm from './ResolutionForm';
@@ -46,4 +47,4 @@ const resolutionQuery = gql`
 
 export default graphql(resolutionQuery, {
   props: ({ data }) => ({ ...data }),
-})(App);
+})(withApollo(App));
