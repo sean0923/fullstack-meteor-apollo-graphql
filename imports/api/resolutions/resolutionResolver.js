@@ -5,8 +5,7 @@ import Resolutions from './Resolutions';
 export default {
   Query: {
     resolutions(obj, args, context) {
-      console.log('context: ', context);
-      return Resolutions.find({}).fetch();
+      return Resolutions.find({ userId: context.userId }).fetch();
     },
   },
 
@@ -14,6 +13,7 @@ export default {
     createResolution(obj, args, context) {
       const resolutionId = Resolutions.insert({
         name: args.name,
+        userId: context.userId,
       });
       return Resolutions.findOne(resolutionId);
     },
