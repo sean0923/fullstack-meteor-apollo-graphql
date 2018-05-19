@@ -7,6 +7,11 @@ export default {
     resolutions(obj, args, context) {
       // console.log('fetch data:', Resolutions.find({ userId: context.userId }).fetch());
       return Resolutions.find({ userId: context.userId }).fetch();
+      // return {
+      //   _id: 'adfadf',
+      //   name: 'aaa',
+      //   userId: 'userId',
+      // };
     },
   },
 

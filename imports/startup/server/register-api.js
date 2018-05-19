@@ -3,18 +3,22 @@ import { makeExecutableSchema } from 'graphql-tools';
 import { merge } from 'lodash';
 
 import ResolutionSchema from '../../api/resolutions/Resolution.graphql';
-import resolutionResolver from '../../api/resolutions/resolutionResolver';
+import UserSchema from '../../api/user/User.graphql';
 
-///////
+import resolutionResolver from '../../api/resolutions/resolutionResolver';
+import userResolver from '../../api/user/userResolver';
+
+/////////////
 
 const testSchema = `
 type Query {
   hi: String
   resolutions: [Resolution]
+  user: User
 }
 `;
 
-const typeDefs = [testSchema, ResolutionSchema];
+const typeDefs = [testSchema, ResolutionSchema, UserSchema];
 
 const hiResolver = {
   Query: {
@@ -24,7 +28,7 @@ const hiResolver = {
   },
 };
 
-const resolvers = merge(hiResolver, resolutionResolver);
+const resolvers = merge(hiResolver, resolutionResolver, userResolver);
 
 const schema = makeExecutableSchema({
   typeDefs,
