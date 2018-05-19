@@ -20,15 +20,24 @@ const handleLogout = client => {
   client.resetStore();
 };
 
-const App = ({ loading, resolutions, client }) => {
-  if (loading) return null;
-  
+const renderLogInAndOut = (user, client) => {
+  if (user) {
+    return <Btn onClick={() => handleLogout(client)}>Logout</Btn>;
+  }
   return (
     <div>
-      <Btn onClick={() => handleLogout(client)}>Logout</Btn>
-
       <RegisterForm client={client} />
       <LoginForm client={client} />
+    </div>
+  );
+};
+
+const App = ({ loading, resolutions, client, user }) => {
+  if (loading) return null;
+
+  return (
+    <div>
+      {renderLogInAndOut(user, client)}
 
       <hr />
 
@@ -44,10 +53,14 @@ const App = ({ loading, resolutions, client }) => {
 
 const resolutionQuery = gql`
   query resolutionQuery {
-    hi
     resolutions {
       _id
       name
+      userId
+    }
+    user {
+      _id
+      email
     }
   }
 `;
